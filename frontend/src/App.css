@@ -1,0 +1,333 @@
+body, #root, .jackbox-bg {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f7b42c 0%, #fc575e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.lobby-container {
+  background: rgba(255,255,255,0.95);
+  border-radius: 2.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 350px;
+}
+
+.game-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fc575e;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #fff, 4px 4px 0 #f7b42c;
+}
+
+.code-box {
+  background: #fffbe7;
+  border: 4px dashed #f7b42c;
+  border-radius: 1.5rem;
+  padding: 1.5rem 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 16px 0 rgba(252, 87, 94, 0.15);
+}
+
+.code-label {
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.room-code {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #f7b42c;
+  letter-spacing: 0.7rem;
+  text-shadow: 2px 2px 0 #fc575e, 4px 4px 0 #fff;
+  font-family: 'Roboto Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  width: 12ch;
+  display: inline-block;
+  text-align: center;
+}
+
+.waiting-msg {
+  font-size: 1.3rem;
+  color: #fc575e;
+  font-weight: 700;
+  margin-top: 1rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.start-btn {
+  margin-top: 2rem;
+  padding: 1.2rem 3.5rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(90deg, #fc575e 0%, #f7b42c 100%);
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 4px 16px 0 rgba(252, 87, 94, 0.18);
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+.start-btn:hover {
+  transform: scale(1.07) rotate(-2deg);
+  background: linear-gradient(90deg, #f7b42c 0%, #fc575e 100%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+}
+
+.players-list-container {
+  margin: 2rem 0 1.5rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.players-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fc575e;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #fff;
+}
+.players-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem 1rem;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto 1rem auto;
+}
+.player-item {
+  background: #f7b42c22;
+  border-radius: 1rem;
+  padding: 0.7rem 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fc575e;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 rgba(252, 87, 94, 0.07);
+  letter-spacing: 1px;
+  min-width: 0;
+  word-break: break-word;
+  transition: background 0.2s;
+  margin: 0;
+}
+.player-placeholder {
+  grid-column: span 4;
+  color: #bbb;
+  background: #fffbe7;
+  font-style: italic;
+  text-align: center;
+  padding: 0.7rem 0;
+}
+.add-player-btn {
+  margin-top: 0.7rem;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(90deg, #f7b42c 0%, #fc575e 100%);
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px 0 rgba(252, 87, 94, 0.13);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+.add-player-btn:hover {
+  transform: scale(1.05) rotate(1deg);
+  background: linear-gradient(90deg, #fc575e 0%, #f7b42c 100%);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.13);
+}
+
+.players-joined-msg {
+  font-size: 1.3rem;
+  color: #43e97b;
+  font-weight: 700;
+  margin-top: 1rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #fff;
+  transition: color 0.2s;
+}
+
+.player-names-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.player-bg-name {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fc575e99;
+  opacity: 0.35;
+  text-shadow: 2px 2px 0 #fff, 4px 4px 0 #f7b42c44;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  transform-origin: center center;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+.jackbox-bg {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+}
+
+.player-bubble {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2.2rem;
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.13);
+  transition: background 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+.bubble-name {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 0.4rem 1.2rem;
+  text-shadow: 1px 1px 0 #fc575e99, 2px 2px 0 #fff8;
+  word-break: break-word;
+  pointer-events: none;
+  user-select: none;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+/* Jackbox-style prompt scene */
+.prompt-scene {
+  background: rgba(255,255,255,0.97);
+  border-radius: 2.5rem;
+  box-shadow: 0 12px 48px 0 rgba(252, 87, 94, 0.18), 0 2px 8px 0 #f7b42c44;
+  padding: 3.5rem 4.5rem 2.5rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 420px;
+  max-width: 90vw;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+.prompt-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #a259f7;
+  margin-bottom: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #fff, 4px 4px 0 #fc575e44;
+}
+.prompt-box {
+  background: linear-gradient(90deg, #fc575e 0%, #f7b42c 100%);
+  border: 5px solid #fffbe7;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 2.2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  letter-spacing: 1px;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+.timer {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 900;
+  border-radius: 2rem;
+  padding: 0.7rem 2.5rem;
+  box-shadow: 0 2px 8px 0 rgba(67, 233, 123, 0.18);
+  letter-spacing: 2px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 0 #fff8, 2px 2px 0 #43e97b44;
+  font-family: 'Quicksand', 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+/* Large prompt scene (fullscreen, centered, huge prompt) */
+.prompt-scene.large {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s;
+}
+.prompt-box.large {
+  font-size: 3.5rem;
+  padding: 4rem 6vw;
+  border-radius: 3rem;
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 64px 0 rgba(252, 87, 94, 0.18), 0 2px 8px 0 #f7b42c44;
+  transition: all 0.7s cubic-bezier(.86,0,.07,1);
+}
+
+/* Shrunk prompt scene (Jackbox style, smaller box) */
+.prompt-scene.shrunk {
+  background: rgba(255,255,255,0.97);
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10vh;
+  min-height: 65vh;
+  transition: background 0.5s;
+}
+.prompt-box.shrunk {
+  font-size: 2rem;
+  padding: 2.2rem 2.5rem;
+  border-radius: 2rem;
+  width: 40vw;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+  transition: all 0.7s cubic-bezier(.86,0,.07,1);
+  margin: 0 auto;
+}
+
+/* Animate between large and shrunk */
+.prompt-scene, .prompt-box {
+  transition: all 0.7s cubic-bezier(.86,0,.07,1);
+}
