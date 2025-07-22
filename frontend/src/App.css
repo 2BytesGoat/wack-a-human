@@ -2,11 +2,13 @@ body, #root, .jackbox-bg {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f7b42c 0%, #fc575e 100%);
+  background: linear-gradient(135deg, #fc575e, #f7b42c, #61dafb, #a259f7);
+  background-size: 400% 400%;
+  animation: jackbox-gradient 12s ease infinite;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Quicksand', 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
+  font-family: 'Fredoka', 'Quicksand', 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
 }
 
 .lobby-container {
@@ -21,12 +23,13 @@ body, #root, .jackbox-bg {
 }
 
 .game-title {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 900;
   color: #fc575e;
   margin-bottom: 2rem;
   letter-spacing: 2px;
   text-shadow: 2px 2px 0 #fff, 4px 4px 0 #f7b42c;
+  font-family: 'Luckiest Guy', 'Fredoka', 'Quicksand', sans-serif;
 }
 
 .code-box {
@@ -82,6 +85,7 @@ body, #root, .jackbox-bg {
   cursor: pointer;
   letter-spacing: 2px;
   transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
 }
 .start-btn:hover {
   transform: scale(1.07) rotate(-2deg);
@@ -154,6 +158,7 @@ body, #root, .jackbox-bg {
   cursor: pointer;
   letter-spacing: 1px;
   transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
 }
 .add-player-btn:hover {
   transform: scale(1.05) rotate(1deg);
@@ -330,4 +335,10 @@ body, #root, .jackbox-bg {
 /* Animate between large and shrunk */
 .prompt-scene, .prompt-box {
   transition: all 0.7s cubic-bezier(.86,0,.07,1);
+}
+
+@keyframes jackbox-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

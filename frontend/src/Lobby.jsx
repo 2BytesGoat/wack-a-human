@@ -67,7 +67,8 @@ function getRandomBubbleStyle(excludeRect, existingBubbles) {
     '#fc575e', '#f7b42c', '#61dafb', '#a259f7', '#43e97b', '#fcb045', '#f857a6', '#30cfd0', '#fdc830', '#f37335'
   ];
   const color = colors[Math.floor(Math.random() * colors.length)] + 'cc';
-  return { x, y, width, height, color, widthPercent, heightPercent };
+  const rotation = Math.random() * 20 - 10;
+  return { x, y, width, height, color, rotation, widthPercent, heightPercent };
 }
 
 export function PlayerNamesBackground({ players, excludeRect }) {
@@ -96,7 +97,8 @@ export function PlayerNamesBackground({ players, excludeRect }) {
               top: `${bubble.y}%`,
               width: `${bubble.width}rem`,
               height: `${bubble.height}rem`,
-              background: bubble.color
+              background: bubble.color,
+              transform: `rotate(${bubble.rotation}deg)`
             }}
           >
             <span className="bubble-name">{name}</span>
