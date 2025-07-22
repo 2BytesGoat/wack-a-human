@@ -1,0 +1,10 @@
+# database
+game.db
+
+# backend
+__pycache__
+
+.venv
+
+# frontend
+node_modules/

@@ -4,7 +4,7 @@ import random
 import string
 import time
 
-from .database import get_db, init_db
+from database import get_db, init_db
 
 app = FastAPI(title="Fibbage Style Game")
 
